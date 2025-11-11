@@ -11,7 +11,35 @@ import ViteImg from '/VITE.png'
 import VercelImg from '/VERCEL.webp'
 import ReactImg from '/REACT.png'
 
+import { useState } from 'react'
+
 function App() {
+
+  const defaultPhoneNunber ='5541999802818'
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  const handleChange = (event) => {
+    const {name, value} = event.target
+    setFormData({...formData, [name]: value})
+  }
+
+  //console.log(formData)
+
+  const handleZap = () => {
+    const {name, email, message} = formData
+
+    const urlZap = `https://api.whatsapp.com/send?phone=${defaultPhoneNunber}&text=
+    Nome:%20${name}%0D%0A
+    Email:%20${email}%0D%0A
+    Mensagem:%20${message}%0D%0A`
+
+    window.open(urlZap, "_blank")
+  }
 
   //javascript
 
@@ -82,9 +110,30 @@ function App() {
           <h2>sessao 3</h2>
         </section>
 
-        <section id='s4'>
-          <h2>sessao 4</h2>
+        <section id='s4' className={styles.s4}>
+          <h2>CONTATO</h2>
+          <div className={styles.formData}>
+            <label htmlFor="name">Informe seu nome</label>
+            <input type="text" id='name' name='name' value={formData.name} onChange={handleChange} required/>
+            <label htmlFor="email">Informe seu email</label>
+            <input type="email" id='email' name='email' value={formData.email} onChange={handleChange} required/>
+            <label htmlFor="message">Informe uma mensagem</label>
+            <textarea name="message" id="message" value={formData.message} onChange={handleChange} cols="30" rows="10" required></textarea>
+            <button onClick={handleZap}>Enviar mensagem</button>
+          </div>
         </section>  
+
+        <section id='s5' className={styles.s5}>
+        <h2>REPOSITORIOS</h2>
+        <h3>Atividade JSON</h3>
+        <a href="https://github.com/VitorEmanuelDeSouza2010/JSON-atividade.git" target='blank'>https://github.com/VitorEmanuelDeSouza2010/JSON-atividade.git</a>
+        <h3>localStorage-Forja-Manha</h3>
+        <a href="https://github.com/VitorEmanuelDeSouza2010/localStorage-Forja-Manha.git" target='blank'>https://github.com/VitorEmanuelDeSouza2010/localStorage-Forja-Manha.git</a>
+        <h3>app-forja-manha-treinos</h3>
+        <a href="https://github.com/VitorEmanuelDeSouza2010/app-forja-manha-treinos.git" target='blank'>https://github.com/VitorEmanuelDeSouza2010/app-forja-manha-treinos.git</a>
+
+      </section>
+
       </main>
       <footer className={styles.rodape}>
         <a href="https://www.facebook.com" target='blank' rel='noopener noreferrer'> <img width={70} src={facebookIcon} alt="Facebook" /></a>

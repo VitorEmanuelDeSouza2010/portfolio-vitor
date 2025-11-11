@@ -53,24 +53,7 @@
     font-size: 22px;
 }
 
-@media (width <= 768px){
-    .s1{
-        padding-top: 50px;
-        gap: 0;
-    }
-    .left{
-        width: 300px;
-        height: 300px;
-    }
-    .imgPerfil{
-        width: 300px;
-        height: 300px;
-    }
-    .right{
-        padding: 20px;
-        margin-top: -150px
-    }
-}
+
 
 .rodape{
     width: 100%;
@@ -89,4 +72,100 @@
 
 .rodape a:hover{
     transform: translateY(-5px) scale(1.3);
+}
+
+.s4 {
+    background-color: #ffffff;
+    color: #011422;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 58vh;
+    height: auto;
+    padding: 58px;
+}
+
+.s4 h2{
+    color: rgb(41, 36, 80);
+    font-size: 50px;
+    letter-spacing: 10px;
+}
+
+.formData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    border: 2px solid #292459;
+    box-shadow: 0px 3px 20px #00000082;
+    padding: 20px;
+}
+
+.formData label {
+    text-align: left;
+    width: 100%;
+    margin-bottom: -8px;
+}
+
+.formData input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    border: 2px solid #292459;
+}
+
+.formData textarea {
+    width: 300px;
+    height: 70px;
+    border: none;
+    border: 2px solid #292459;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.formData button {
+   padding: 10px;
+   border: none;
+   border: 2px solid #292459;
+   border-radius: 5px;
+   width: 100%;
+   opacity: 0.2; 
+}
+
+.formData button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.s5 a {
+    color: black;
+}
+
+@media (width <= 768px){
+    .s1{
+        padding-top: 50px;
+        gap: 0;
+    }
+    .left{
+        width: 300px;
+        height: 300px;
+    }
+    .imgPerfil{
+        width: 300px;
+        height: 300px;
+    }
+    .right{
+        padding: 20px;
+        margin-top: -150px
+    }
+
+    .s4 h2{
+    color: rgb(41, 36, 80);
+    font-size: 42px;
+    letter-spacing: 5px;
+}
 }
