@@ -4,16 +4,20 @@ import facebookIcon from '/Facebook.webp'
 import instagramIcon from '/Instagram.webp'
 import linkedinIcon from '/Linkedin.webp'
 import whatsappIcon from '/WhatsApp.png'
-import HtmlImg from '/HTML.webp'
-import CssImg from '/CSS.png'
-import JavaSImg from '/JAVAS.webp'
-import ViteImg from '/VITE.png'
-import VercelImg from '/VERCEL.webp'
-import ReactImg from '/REACT.png'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Card } from './components/card'
 
 function App() {
+
+  const [dados, setDados] = useState([])
+
+  useEffect(() => {
+      fetch('/cardsInfo.json').then(response => response.json()).then(data => {
+          setDados(data)
+          console.log(data)
+        })
+  }, [])
 
   const defaultPhoneNunber ='5541999802818'
 
@@ -67,43 +71,15 @@ function App() {
         <section className={styles.s2} id='s2'>
           <h2 className={styles.tecTitle}>Tecnologias</h2>
           <div className={styles.wrapCards}>
-            <div className={styles.card}>
-                <img width={100} src={HtmlImg} alt="HTML" />
-                <h3>HTML</h3>
-                <p>HTML (Linguagem de Marcação de Hipertexto) é a linguagem utilizada para estruturar e organizar o conteúdo de páginas web. Ela define a estrutura básica de um site, permitindo que o conteúdo seja apresentado em parágrafos, listas, imagens e tabelas.</p>
-            </div>
-
-            <div className={styles.card}>
-                <img width={100} src={CssImg} alt="CSS" />
-                <h3>CSS</h3>
-                <p>CSS (Cascading Style Sheets) é uma linguagem de estilo usada para descrever a apresentação de documentos escritos em HTML ou XML.</p>
-            </div>
-
-            <div className={styles.card}>
-                <img width={100} src={JavaSImg} alt="JS" />
-                <h3>JS</h3>
-                <p>JavaScript é uma linguagem de programação de alto nível, interpretada e amplamente utilizada para criar páginas web interativas.</p>
-            </div>
-
-            <div className={styles.card}>
-                <img width={100} src={ViteImg} alt="VITE" />
-                <h3>VITE</h3>
-                <p>Vite é uma ferramenta de build e bundler de aplicações front-end criada por Evan You, o mesmo criador do Vue.js. Ela foi projetada para otimizar o processo de desenvolvimento, proporcionando uma inicialização rápida e tempos de compilação ágeis.</p>
-            </div>
-
-            <div className={styles.card}>
-                <img width={100} src={ReactImg} alt="REACT" />
-                <h3>REACT</h3>
-                <p>O React é uma biblioteca JavaScript criada pelo Facebook em 2011, projetada para o desenvolvimento de interfaces de usuário (UI) em aplicações web.</p>
-            </div>
-
-            <div className={styles.card}>
-                <img width={100} src={VercelImg} alt="VERCEL" />
-                <h3>VERCEL</h3>
-                <p>Vercel é uma plataforma de software como serviço (SaaS) que permite aos desenvolvedores criar, implantar e escalar sites e aplicativos de forma rápida e eficiente.</p>
-            </div>
-
+            {dados.map((item) => {
+              return(
+                <div key={item.id}>
+                <Card tec={item.tecnologia} image={item.imagem} text={item.texto}/>
+                </div>
+              )
+            })}
           </div>
+          
         </section>
 
         <section id='s3'>

@@ -145,6 +145,30 @@
     color: black;
 }
 
+.s2 {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px;
+}
+
+.tecTitle {
+    width: 100%;
+    text-align: center;
+    color: #02263f;
+    font-size: 56px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.wrapCards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 @media (width <= 768px){
     .s1{
         padding-top: 50px;
